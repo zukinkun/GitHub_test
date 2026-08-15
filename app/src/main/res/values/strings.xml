@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TapGame</string>
+    <string name="score_format">スコア: %1$d</string>
+    <string name="timer_format">残り時間: %1$d</string>
+    <string name="school_name">新潟工業高校　IT工学科</string>
+    <string name="event_name">３年生　実習</string>
+</resources>
