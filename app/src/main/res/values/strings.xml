@@ -1,19 +1,25 @@
 <resources>
+    <!-- アプリ名 -->
     <string name="app_name">TapGame</string>
+
+    <!-- 【★カスタマイズのヒント: 学校名やイベント名★】自分のクラス名や名前に変えてみよう -->
     <string name="school_name">新潟工業高校　IT工学科</string>
     <string name="event_name">３年生　実習</string>
 
+    <!-- ゲーム中の表示フォーマット（%1$.1f や %1$d は数値が入る場所） -->
     <string name="timer_format">残り %1$.1f 秒</string>
     <string name="score_format">スコア: %1$d</string>
     <string name="combo_format">×%1$d COMBO!</string>
     <string name="plus_one">+1</string>
 
+    <!-- ボタンや案内メッセージ -->
     <string name="tap_label">TAP!</string>
     <string name="start_game">ゲームスタート</string>
     <string name="hint_idle">スタートを押してね！</string>
     <string name="countdown_go">GO!</string>
     <string name="interrupted">中断しました。もう一度どうぞ！</string>
 
+    <!-- 結果画面のテキスト -->
     <string name="result_title">TIME UP!</string>
     <string name="result_score">%1$d 回</string>
     <string name="result_best">ハイスコア: %1$d</string>
@@ -22,6 +28,7 @@
     <string name="result_rank">称号: %1$s</string>
     <string name="play_again">もう一度</string>
 
+    <!-- 【★カスタマイズのヒント: 称号の名前★】かっこいい称号や面白い称号に変えてみよう -->
     <string name="rank_beginner">初心者</string>
     <string name="rank_apprentice">見習い</string>
     <string name="rank_expert">達人</string>

@@ -15,9 +15,18 @@ import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
+/**
+ * GameViewModel の動作を検証する単体テスト（Unit Test）クラス。
+ * アプリを画面上で実際に動かさなくても、ロジックが正しく動いているか瞬時に自動テストできます。
+ *
+ * 【★注意★】
+ * GameViewModel や GameUiState の設定値（制限時間、称号のスコア基準など）を改造した場合は、
+ * ここにあるテストの期待値（assertEquals など）も合わせて修正するとテストが成功するようになります。
+ */
 @OptIn(ExperimentalCoroutinesApi::class)
 class GameViewModelTest {
 
+    // テスト用のダミーのスコア保存クラス（本物の SharedPreferences を使わずにメモリ上で管理）
     private class FakeStore(var best: Int = 0) : ScoreStore {
         override fun highScore() = best
         override fun saveHighScore(score: Int) {

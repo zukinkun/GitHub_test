@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- 基本カラー -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="primary_blue">#2196F3</color>
-    <color name="accent_orange">#FF9800</color>
-    <color name="timer_red">#F44336</color>
-    <color name="timer_green">#2E7D32</color>
-    <color name="timer_amber">#F9A825</color>
-    <color name="combo_start">#FF9800</color>
-    <color name="combo_end">#D500F9</color>
     <color name="text_dark">#FF1B1B1F</color>
+
+    <!-- 【★カスタマイズのヒント: テーマカラー★】好みのカラーコード（#RRGGBB）に変えてみよう -->
+    <color name="primary_blue">#2196F3</color>   <!-- スタートボタンやメインの青 -->
+    <color name="accent_orange">#FF9800</color>  <!-- タップボタンのオレンジ -->
+
+    <!-- タイマー（残り時間）の色 -->
+    <color name="timer_green">#2E7D32</color>   <!-- 残り時間50%超（緑） -->
+    <color name="timer_amber">#F9A825</color>   <!-- 残り時間25〜50%（黄） -->
+    <color name="timer_red">#F44336</color>     <!-- 残り時間25%未満 / カウントダウン（赤） -->
+
+    <!-- コンボ文字のグラデーション色（低コンボ → 高コンボ） -->
+    <color name="combo_start">#FF9800</color>   <!-- コンボ開始時の色（オレンジ） -->
+    <color name="combo_end">#D500F9</color>     <!-- 高コンボ時の色（紫・ピンク） -->
+
+    <!-- 待機中の背景グラデーション（水色系） -->
     <color name="bg_idle_top">#E3F2FD</color>
     <color name="bg_idle_bottom">#90CAF9</color>
+
+    <!-- プレイ中の背景グラデーション（白〜オレンジ系） -->
     <color name="bg_playing_top">#FFF3E0</color>
     <color name="bg_playing_bottom">#FF8A65</color>
+
+    <!-- 結果カード表示時の半透明の背景幕（黒透過） -->
     <color name="scrim">#99000000</color>
 </resources>
