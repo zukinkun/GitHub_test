@@ -1,90 +1,231 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/main"
-    android:background="@color/white"
-    android:padding="16dp">
+    android:background="@drawable/bg_idle">
 
-    <!-- 学校名 -->
+    <!-- プレイ中に重ねて表示する暖色背景（alpha でなめらかに切り替え） -->
+    <View
+        android:id="@+id/bgPlaying"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0"
+        android:background="@drawable/bg_playing" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/school_name"
+                android:textColor="@color/text_dark"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/event_name"
+                android:textColor="@color/text_dark"
+                android:textSize="16sp" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/timeBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:max="1000"
+                android:progress="1000"
+                app:indicatorColor="@color/timer_green"
+                app:trackColor="#33000000"
+                app:trackCornerRadius="8dp"
+                app:trackThickness="14dp" />
+
+            <TextView
+                android:id="@+id/timerText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textColor="@color/timer_green"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/scoreText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/primary_blue"
+                android:textSize="44sp"
+                android:textStyle="bold" />
+
+            <!-- コンボ表示（高さを固定してレイアウトが揺れないようにする） -->
+            <TextView
+                android:id="@+id/comboText"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:visibility="invisible" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/tapButton"
+                android:layout_width="190dp"
+                android:layout_height="190dp"
+                android:layout_marginTop="8dp"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/tap_label"
+                android:textSize="44sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/accent_orange"
+                app:cornerRadius="95dp"
+                app:elevation="8dp" />
+
+            <TextView
+                android:id="@+id/hintText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/hint_idle"
+                android:textColor="@color/text_dark"
+                android:textSize="16sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/startButton"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:layout_marginTop="16dp"
+                android:minWidth="220dp"
+                android:text="@string/start_game"
+                android:textSize="18sp"
+                app:backgroundTint="@color/primary_blue"
+                app:cornerRadius="32dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 「+1」浮遊演出用レイヤー（タッチは透過） -->
+    <FrameLayout
+        android:id="@+id/effectLayer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="false"
+        android:focusable="false" />
+
     <TextView
-        android:id="@+id/schoolTextView"
+        android:id="@+id/countdownText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="@string/school_name"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- イベント名 -->
-    <TextView
-        android:id="@+id/eventTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="@string/event_name"
-        android:textColor="@color/black"
-        android:textSize="12pt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/schoolTextView" />
-
-    <!-- タイマー -->
-    <TextView
-        android:id="@+id/timerText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="@string/timer_format"
+        android:layout_gravity="center"
         android:textColor="@color/timer_red"
-        android:textSize="28sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eventTextView" />
-
-    <!-- スコア -->
-    <TextView
-        android:id="@+id/scoreText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/score_format"
-        android:textColor="@color/primary_blue"
-        android:textSize="44sp"
+        android:textSize="120sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timerText" />
+        android:visibility="gone" />
 
-    <!-- タップボタン -->
-    <Button
-        android:id="@+id/tapButton"
-        android:layout_width="180dp"
-        android:layout_height="180dp"
-        android:layout_marginTop="30dp"
-        android:text="TAP!"
-        android:backgroundTint="@color/accent_orange"
-        android:textSize="50sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scoreText" />
+    <!-- 結果カード -->
+    <FrameLayout
+        android:id="@+id/resultOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/scrim"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone">
 
-    <!-- スタートボタン -->
-    <Button
-        android:id="@+id/startButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="ゲームスタート"
-        android:backgroundTint="@color/primary_blue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tapButton" />
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/resultCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="32dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="12dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/result_title"
+                    android:textColor="@color/timer_red"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/resultScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/primary_blue"
+                    android:textSize="56sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/resultNewRecord"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/new_record"
+                    android:textColor="@color/accent_orange"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/resultBest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/text_dark"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/resultTps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/text_dark"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/resultRank"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textColor="@color/text_dark"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/playAgainButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="20dp"
+                    android:minWidth="180dp"
+                    android:text="@string/play_again"
+                    app:backgroundTint="@color/primary_blue"
+                    app:cornerRadius="28dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </FrameLayout>
+</FrameLayout>

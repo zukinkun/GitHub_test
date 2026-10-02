@@ -1,7 +1,29 @@
 <resources>
     <string name="app_name">TapGame</string>
-    <string name="score_format">スコア: %1$d</string>
-    <string name="timer_format">残り時間: %1$d</string>
     <string name="school_name">新潟工業高校　IT工学科</string>
     <string name="event_name">３年生　実習</string>
+
+    <string name="timer_format">残り %1$.1f 秒</string>
+    <string name="score_format">スコア: %1$d</string>
+    <string name="combo_format">×%1$d COMBO!</string>
+    <string name="plus_one">+1</string>
+
+    <string name="tap_label">TAP!</string>
+    <string name="start_game">ゲームスタート</string>
+    <string name="hint_idle">スタートを押してね！</string>
+    <string name="countdown_go">GO!</string>
+    <string name="interrupted">中断しました。もう一度どうぞ！</string>
+
+    <string name="result_title">TIME UP!</string>
+    <string name="result_score">%1$d 回</string>
+    <string name="result_best">ハイスコア: %1$d</string>
+    <string name="new_record">🎉 NEW RECORD!</string>
+    <string name="result_tps">平均 %1$.1f 回/秒</string>
+    <string name="result_rank">称号: %1$s</string>
+    <string name="play_again">もう一度</string>
+
+    <string name="rank_beginner">初心者</string>
+    <string name="rank_apprentice">見習い</string>
+    <string name="rank_expert">達人</string>
+    <string name="rank_godspeed">神速</string>
 </resources>

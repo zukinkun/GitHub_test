@@ -5,4 +5,14 @@
     <color name="primary_blue">#2196F3</color>
     <color name="accent_orange">#FF9800</color>
     <color name="timer_red">#F44336</color>
+    <color name="timer_green">#2E7D32</color>
+    <color name="timer_amber">#F9A825</color>
+    <color name="combo_start">#FF9800</color>
+    <color name="combo_end">#D500F9</color>
+    <color name="text_dark">#FF1B1B1F</color>
+    <color name="bg_idle_top">#E3F2FD</color>
+    <color name="bg_idle_bottom">#90CAF9</color>
+    <color name="bg_playing_top">#FFF3E0</color>
+    <color name="bg_playing_bottom">#FF8A65</color>
+    <color name="scrim">#99000000</color>
 </resources>
